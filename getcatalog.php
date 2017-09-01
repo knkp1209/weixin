@@ -1,5 +1,6 @@
 <?php 
 	require_once('db_fns.php');
+	require_once('const.php');
 	$rid = @$_GET['rid'];
 	if(!$rid)
 		exit;
@@ -14,7 +15,7 @@
 	if (@$result->num_rows > 0) {
 		$result = db_result_to_array($result);
 		for($i = 0; $i < count($result); $i++){
-			$result[$i]['image'] = 'http://'.$_SERVER['SERVER_NAME'].'/data/catimg/'.$result[$i]['image'];
+			$result[$i]['image'] = 'http://'.$_SERVER['SERVER_NAME'].DIR.'data/catimg/'.$result[$i]['image'];
 
 		}
 

@@ -1,5 +1,6 @@
 <?php 
 	require_once('db_fns.php');
+	require_once('const.php');
 	$rid = @$_GET['rid'];
 	$catid = @$_GET['catid'];
 	if(!$rid && !$catid)
@@ -18,10 +19,10 @@
 			$gdswpimg = explode('#',$result[$i]['gdswpimg']);
 			$detailsimg = explode('#',$result[$i]['detailsimg']);
 			for($j = 0; $j < count($gdswpimg); $j++){
-				$gdswpimg[$j] = 'http://'.$_SERVER['SERVER_NAME'].'/data/goodsimg/'.$gdswpimg[$j];
+				$gdswpimg[$j] = 'http://'.$_SERVER['SERVER_NAME'].DIR.'/data/goodsimg/'.$gdswpimg[$j];
 			}
 			for($j = 0; $j < count($detailsimg); $j++){
-				$detailsimg[$j] = 'http://'.$_SERVER['SERVER_NAME'].'/data/goodsimg/'.$detailsimg[$j];
+				$detailsimg[$j] = 'http://'.$_SERVER['SERVER_NAME'].DIR.'/data/goodsimg/'.$detailsimg[$j];
 			}
 			$result[$i]['gdswpimg'] = $gdswpimg;
 			$result[$i]['detailsimg'] = $detailsimg;
