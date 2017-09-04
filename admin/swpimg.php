@@ -34,7 +34,6 @@ $conn = db_connect();
 $conn->query("set character set utf8");//读库
 $conn->query("set names utf8");//写库
 $rid = $_SESSION['customer']['rid'];
-echo $rid;
 $query = "SELECT image FROM swpimg WHERE rid = $rid";
 $result = @$conn->query($query);
 if (!$result) {

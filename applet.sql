@@ -6,6 +6,7 @@ rid 标识小程序ID
 lgmail 小程序登录邮箱
 pwd 小程序登录密码
 phone 小程序联系电话
+appname 小程序名称
 appID 小程序AppID
 
 CREATE TABLE tenant(

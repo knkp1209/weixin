@@ -7,31 +7,32 @@ $conn->query("set character set utf8");//读库
 $conn->query("set names utf8");//写库
 $parameter = null;
 $images = array();
-$companyname = array();
+$cat = array();
 $upload_path = $imgcompanylogo;
+$rid = $_SESSION['customer']['rid'];
 
 if (!empty($_FILES['imagefile']))
     $images = uploadimage($_FILES['imagefile'], $upload_path);
-if (isset($_POST['companynames']) && count($_POST['companynames']) > 0)
-    $companyname = $_POST['companynames'];
+if (isset($_POST['cat']) && count($_POST['cat']) > 0)
+    $cat = $_POST['cat'];
 
 
-if (count($images) == count($companyname)) {
+if (count($images) == count($cat)) {
 
     for ($i = 0; $i < count($images); $i++) {
-        $parameter .= "('{$images[$i]}','{$companyname[$i]}'),";
+        $parameter .= "('$rid','{$images[$i]}','{$c[$i]}'),";
     }
     $parameter = substr($parameter, 0, -1);
-    $query = 'INSERT INTO cooperations (logo,company_name) VALUES ' . $parameter;
+    $query = 'INSERT INTO catalog (rid,catname,image) VALUES ' . $parameter;
     $result = $conn->query($query);
     if ($conn->affected_rows < 0) {
         echo '添加失败，系统错误!';
-        $url = 'admincompanya.php';
+        $url = 'addcatalog.php';
         header('Refresh: 1; url=' . $url);
         exit;
     } else if ($conn->affected_rows > 0) {
         echo '添加成功';
-        $url = 'admincompanya.php';
+        $url = 'addcatalog.php';
         header('Refresh: 1; url=' . $url);
         exit;
     }
