@@ -70,7 +70,7 @@ if (count($images) > 0) {
 if ($successful)
     echo "修改成功";
 else
-    echo "修改无效";
+    echo "修改无效,图片已存在或者没改动";
 
 
 header('Refresh: 1; url=swpimg.php');

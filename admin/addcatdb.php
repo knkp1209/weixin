@@ -8,7 +8,7 @@ $conn->query("set names utf8");//写库
 $parameter = null;
 $images = array();
 $cat = array();
-$upload_path = $imgcompanylogo;
+$upload_path = $imgcat;
 $rid = $_SESSION['customer']['rid'];
 
 if (!empty($_FILES['imagefile']))
@@ -17,10 +17,10 @@ if (isset($_POST['cat']) && count($_POST['cat']) > 0)
     $cat = $_POST['cat'];
 
 
-if (count($images) == count($cat)) {
+if (count($images) > 0  && count($images) == count($cat)) {
 
     for ($i = 0; $i < count($images); $i++) {
-        $parameter .= "('$rid','{$images[$i]}','{$c[$i]}'),";
+        $parameter .= "('$rid','{$cat[$i]}','{$images[$i]}'),";
     }
     $parameter = substr($parameter, 0, -1);
     $query = 'INSERT INTO catalog (rid,catname,image) VALUES ' . $parameter;

@@ -184,7 +184,7 @@ function addcat() {
 
 
     companynames.type = 'text';
-    companynames.name = 'companynames[]';
+    companynames.name = 'cat[]';
     companynames.className = 'forminline';
 
 

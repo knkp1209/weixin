@@ -8,11 +8,12 @@ ob_start();
 	  exit;
 	}
 	require_once('../db_fns.php');
-	$imgcase = '../images/case/';
+	$imgindex = '../data/swpimg/';
+	$imgcat = '../data/catimg/';
 	$imgcompanylogo = '../images/companylogo/';
 	$imggold = '../images/gold/';
 	$imggoldsilde = '../images/gold/slide/';
-	$imgindex = '../data/swpimg/';
+	
 	$imgnews = '../images/news/';
 	$imgpeople = '../images/people/';
 ob_end_flush();
