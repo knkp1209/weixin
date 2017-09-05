@@ -34,7 +34,7 @@
             width:7%;
         }
         .simg{
-            width:35%            
+            width:35%;           
         }
         .dimg{
             width:35%
