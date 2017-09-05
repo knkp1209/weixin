@@ -38,15 +38,15 @@ var navs = [{
         "href": "addcatalog.php"
     }]
 }, {
-    "title": "员工展示",
+    "title": "商品栏",
     "icon": "fa-male",
     "spread": false,
     "children": [{
-        "title": "删除员工",
+        "title": "删除商品",
         "icon": "fa-trash",
-        "href": "adminaboutus.php"
+        "href": "delgoods.php"
     }, {
-        "title": "添加员工",
+        "title": "添加商品",
         "icon": "fa-plus-square",
         "href": "adminaboutusa.php"
     }]

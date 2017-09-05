@@ -268,4 +268,37 @@ function getRandOnlyId() {
 }
 
 
+function idcvrname($id){
+
+    $conn = db_connect();
+    $conn->query("set character set utf8");
+    $conn->query("set names utf8");
+    $query = "SELECT catname FROM catalog WHERE catalogID = $id";
+    $result = $conn->query($query);
+    $cat = $result->fetch_object();
+    if(empty($cat->catname))
+        exit;
+    return $cat->catname;
+
+}
+
+function idcvrimg($id){
+
+    echo $id;
+    
+
+    exit;
+    $conn = db_connect();
+    $conn->query("set character set utf8");
+    $conn->query("set names utf8");
+    $query = "SELECT catname FROM catalog WHERE catalogID = $id";
+    $result = $conn->query($query);
+    $cat = $result->fetch_object();
+    if(empty($cat->catname))
+        exit;
+    return $cat->catname;
+
+}
+
+
 ?>
