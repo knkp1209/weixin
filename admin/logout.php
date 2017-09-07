@@ -10,7 +10,7 @@ session_destroy();
 //do_html_header("Logging Out");
 
 if (!empty($old_user)) {
-    $indexurl =  $_SERVER['HTTP_HOST']."/admin/login.php";
+    $indexurl =  $_SERVER['HTTP_HOST']."/weixin/admin/login.php";
 	header('Location: http://'.$indexurl);
     //do_html_url("login.php", "Login");
 } else {

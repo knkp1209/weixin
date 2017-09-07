@@ -12,7 +12,7 @@
     <body>
         <div class="admin-main">
             <fieldset class="layui-elem-field">
-                <legend>删除公司</legend>
+                <legend>删除分类</legend>
                 <div class="layui-field-box">
 <?php
 require_once('admin_include_fns.php');
@@ -32,7 +32,7 @@ if (!$result) {
 
 $num = @$result->num_rows;
 if ($num > 0) {
-    echo '<div style="width:40%; margin:0 auto; text-align:center"><h1>删除公司</h1></div>';
+    echo '<div style="width:40%; margin:0 auto; text-align:center"><h1>删除分类</h1></div>';
     echo '<form method="post"
         action="delcatdb.php" enctype="multipart/form-data">';
     $result = db_result_to_array($result);

@@ -23,7 +23,16 @@ if (isset($_POST['cats']) && count($_POST['cats']) > 0) {
         $parameter = '';
         $catsID = db_result_to_array($result);
         for($i = 0; $i < count($catsID); $i++){
-            $parameter .= $catsID[$i]['catalogID'] . ",";
+            if(dbselect('goods','catalogId',$catsID[$i]['catalogID'])){
+                // 待测试
+                $parameter .= $catsID[$i]['catalogID'] . ",";
+            }
+        }
+        if(empty($parameter)){
+            echo '请先删除该分类下的商品'; 
+            $url = 'delcatalog.php';
+            header('Refresh: 1; url=' . $url);
+            exit;
         }
         $parameter = substr($parameter,0,-1);
         $query = "DELETE FROM catalog WHERE catalogID in (" . $parameter . ")";

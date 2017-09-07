@@ -10,7 +10,7 @@ ob_start();
 	require_once('../db_fns.php');
 	$imgindex = '../data/swpimg/';
 	$imgcat = '../data/catimg/';
-	$imgcompanylogo = '../images/companylogo/';
+	$imggoods= '../data/goodsimg/';
 	$imggold = '../images/gold/';
 	$imggoldsilde = '../images/gold/slide/';
 	

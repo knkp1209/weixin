@@ -48,37 +48,11 @@ var navs = [{
     }, {
         "title": "添加商品",
         "icon": "fa-plus-square",
-        "href": "adminaboutusa.php"
+        "href": "addgoods.php"
     }]
-}, {
-    "title": "合作公司",
-    "icon": "fa-bank",
-    "spread": false,
-    "children": [{
-        "title": "删除公司",
-        "icon": "fa-trash",
-        "href": "admincompany.php"
-    }, {
-        "title": "添加公司",
-        "icon": "fa-plus-square",
-        "href": "admincompanya.php"
-    }]
-}, {
+},  {
     "title": "查看预约",
     "icon": "fa-search",
     "spread": false,
     "href": "adminappointment.php"
-}, {
-    "title": "新闻",
-    "icon": "fa-newspaper-o",
-    "spread": false,
-    "children": [{
-        "title": "删除新闻",
-        "icon": "fa-trash",
-        "href": "adminnews.php"
-    }, {
-        "title": "添加新闻",
-        "icon": "fa-plus-square",
-        "href": "addnews.php"
-    }]
 }];

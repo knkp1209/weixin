@@ -45,10 +45,6 @@ require_once('admin_include_fns.php');
 
 
 						<li class="layui-nav-item">
-							<a href="../index.php">浏览网站</a>
-						</li>
-
-						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
 								<img src="images/0.jpg" />
 								<span>beginner</span>
@@ -86,7 +82,7 @@ require_once('admin_include_fns.php');
 					<ul class="layui-tab-title">
 						<li class="layui-this">
 							<i class="fa fa-hand-o-right" aria-hidden="true"></i>
-							<cite>欢迎登录野行人网站管理后台</cite>
+							<cite>欢迎国诚众鑫小程序网站管理后台</cite>
 						</li>
 					</ul>
 					<div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">

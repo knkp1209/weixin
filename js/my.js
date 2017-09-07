@@ -16,11 +16,18 @@ function delimg(i) {
     parent.removeChild(valchild);
 }
 
+function showPicture(imgFile) {
+    document.getElementById("newImage").src = window.URL.createObjectURL(imgFile.files[0]);
+}
+
+
+
 function addPic1() {
     var addBtn = document.getElementById('addBtn');
     var input = document.createElement('input');
     input.type = 'file';
     input.name = 'imagefile[]';
+    input.className = 'abc';
     var picInut = document.getElementById('picInput');
     picInut.appendChild(input);
     if (picInut.children.length == 10) {
@@ -132,7 +139,7 @@ function addpeople() {
     var img = document.createElement('input');
     var name = document.createElement('input');
     var profile = document.createElement('input');
-   
+
     img.type = 'file';
     img.name = 'imagefile[]';
     img.className = 'forminline';
@@ -171,13 +178,13 @@ function addpeople() {
 }
 
 function addcat() {
-     var addBtn = document.getElementById('addBtn');
+    var addBtn = document.getElementById('addBtn');
 
     var hr = document.createElement('hr');
 
     var img = document.createElement('input');
     var companynames = document.createElement('input');
-   
+
     img.type = 'file';
     img.name = 'imagefile[]';
     img.className = 'forminline';
@@ -213,13 +220,12 @@ function addcat() {
 
 }
 
-function getElements()
-{
-  var x=document.getElementsByTagName("input");
-  for (var i=0; i<x.length; i++){
-      if (x[i].value == "") {
-        alert('请将表单填写完成');
-        return false;// 有空值
-      }
-  }
+function getElements() {
+    var x = document.getElementsByTagName("input");
+    for (var i = 0; i < x.length; i++) {
+        if (x[i].value == "") {
+            alert('请将表单填写完成');
+            return false; // 有空值
+        }
+    }
 }
