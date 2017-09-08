@@ -230,19 +230,23 @@ function getElements() {
     }
 }
 
-function readAsDataURL(file,idname){
+function readAsDataURL(file, idname) {
 
 
-    var result=document.getElementById(idname);  
+    var result = document.getElementById(idname);
     result.innerHTML = '';
-    for(i = 0; i< file.length; i ++) {
-        var reader  = new FileReader();    
-        reader.readAsDataURL(file[i]);  
-        reader.onload=function(e){  
+    for (i = 0; i < file.length; i++) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file[i]);
+        reader.onload = function(e) {
             //多图预览
-            result.innerHTML = result.innerHTML + '<img src="' + this.result +'" alt="" />';  
+            result.innerHTML = result.innerHTML + '<img src="' + this.result + '" alt="" />';
         }
 
     }
-    
+
+}
+
+function btnAction(id) {
+    document.getElementById(id).click();
 }

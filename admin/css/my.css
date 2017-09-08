@@ -51,7 +51,6 @@ input:focus {
     width: 100px;
 }
 .button:hover {
-
     background: #00c8ff;
 }
 
@@ -59,6 +58,9 @@ input:focus {
   width: 234px;
 }
 
+select{
+  width: 234px;
+}
 
 input[type=file]{
     display: none;
@@ -76,9 +78,8 @@ input[type=file]{
     background: #C4E1FF;
     height: 110px;
     width: 520px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     border: 2px solid #009393;
+    margin: 10px auto;
   }
   .prelogo{
     background: #C4E1FF;
@@ -92,3 +93,9 @@ input[type=file]{
   form p{
     margin: 5px auto;
   }
+
+.goods{
+  text-align: center;
+  width: 100%;
+  margin: 0px auto;
+}

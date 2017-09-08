@@ -35,8 +35,8 @@ if(!$result){
     <link rel="stylesheet" href="css/my.css">
     <script src="js/my.js"></script>
     <script type="text/javascript">
-    function btnAction(){
-        document.getElementById("logo").click();
+    function btnAction(id) {
+    document.getElementById(id).click();
     }
     </script>
 </head>
@@ -57,7 +57,7 @@ if(!$result){
                         <input id="appID" type="text" name="appID" placeholder="<?php echo $appID ?>" />
                     </p>
                     <p>
-                        <label for="logo">小程序LOGO：</label><input type="button" class="button logo"  value="选择图片" onclick="btnAction()">
+                        <label for="logo">小程序LOGO：</label><input type="button" class="button logo"  value="选择图片" onclick="btnAction('logo')">
                         <input id="logo" type="file" class="file" name="logo"  onchange="readAsDataURL(this.files,'prelogo')"/>
                         <div id="prelogo" class="prelogo">
                             <?php if($logo) echo "<img src=\"$imglogo$logo\" />" ?>

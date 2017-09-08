@@ -25,7 +25,7 @@
         <title></title>
         <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
         <link rel="stylesheet" href="css/main.css" />
-        <script src="../js/my.js"></script>
+        <script src="js/my.js"></script>
         <link rel="stylesheet" href="css/my.css" />
 <style>
 	input[type=file]{
@@ -55,9 +55,11 @@
 	</head>
     <body>
         <div class="admin-main">
+
             <fieldset class="layui-elem-field">
                 <legend>添加商品分类</legend>
                 <div class="layui-field-box">
+                <div class="goods">
     <form method="post" action="addgoodsdb.php" enctype="multipart/form-data" onsubmit="return getElements()">
 
     <p><label for="agn">商品名称：</label><input id="agn" type="text" name="gdname" /></p>
@@ -75,15 +77,16 @@
 </select></p>
     <p><label for="ags">商品原价：</label><input id="ags" type="text" name="sprice" /></p>
     <p><label for="agp">商品现价：</label><input id="agp" type="text" name="price"></p>
-    <p><label for="agsimg">展示图片(最多十张)<img src="images/uploadfile.png" /></label><input type="file" id="agsimg" name="agsfile[]" multiple="multiple" onchange="readAsDataURL(this.files,'preags')" /></p>
+    <p><label for="agsimg">展示图片(最多十张)</label><input type="button" class="button logo"  value="选择图片" onclick="btnAction('agsimg')"><input type="file" id="agsimg" name="agsfile[]" multiple="multiple" onchange="readAsDataURL(this.files,'preags')" /></p>
     <div id="preags" class="prediv"></div>
-    <p><label for="agdimg">详情图片(最多十张)<img src="images/uploadfile.png" /></label><input type="file" id="agdimg" name="agdfile[]" multiple="true" onchange="readAsDataURL(this.files,'preagd')" /></p>
+    <p><label for="agdimg">详情图片(最多十张)</label><input type="button" class="button logo"  value="选择图片" onclick="btnAction('agdimg')"><input type="file" id="agdimg" name="agdfile[]" multiple="true" onchange="readAsDataURL(this.files,'preagd')" /></p>
     <div id="preagd" class="prediv"></div>
     <p><label for="adnum">库存数量：</label><input id="adnum" type="text" name="gdnumber"/></p>
     <p><label for="adu">单位名称：</label><input id="adu" type="text" name="unitname"/></p>
-    <p><input type="submit" value="添加商品" ></p>
+    <p><input type="submit" class="button" value="添加商品" ></p>
     </form>
                 </div>
+    </div>
             </fieldset>
         </div>
     </body>

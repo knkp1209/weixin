@@ -71,7 +71,7 @@ if ($num_cats > 0) {
         action="updateslideshow.php?table=slideshows" enctype="multipart/form-data">
     <p><label for="agdimg">详情图片(最多十张)<img src="images/uploadfile.png" /></label><input type="file" id="agdimg" name="imagefile[]" multiple="true" onchange="readAsDataURL(this.files,'preagd')" /></p>
     <div id="preagd" class="prediv"></div>
-   <input type="submit" value="更新" />
+   <input type="submit" class="button" value="更新" />
    </form>
 
 

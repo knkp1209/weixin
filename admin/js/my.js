@@ -246,3 +246,7 @@ function readAsDataURL(file,idname){
     }
     
 }
+
+function btnAction(id) {
+    document.getElementById(id).click();
+}
