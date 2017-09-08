@@ -47,7 +47,7 @@ require_once('admin_include_fns.php');
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
 								<img src="images/0.jpg" />
-								<span>beginner</span>
+								<span><?php echo $_SESSION['customer']['appname']; ?></span>
 							</a>
 							<dl class="layui-nav-child">
 <!-- 								<dd>

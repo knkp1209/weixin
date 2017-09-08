@@ -55,4 +55,9 @@ var navs = [{
     "icon": "fa-search",
     "spread": false,
     "href": "adminappointment.php"
+},{
+    "title": "小程序信息管理",
+    "icon": "fa-list",
+    "spread": false,
+    "href": "applet.php"
 }];

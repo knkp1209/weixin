@@ -35,7 +35,7 @@ if (isset($_POST['submitted'])) { // Check if the form has been submitted.
             // Register the values & redirect.
             $row = $result->fetch_assoc();
             $_SESSION['customer'] = array();
-            $_SESSION['customer']['mail'] = $row['lamail'];
+            $_SESSION['customer']['mail'] = $row['lgmail'];
             $_SESSION['customer']['appname'] = $row['appname'];
             $_SESSION['customer']['rid'] = $row['rid'];
 

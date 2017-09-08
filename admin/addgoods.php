@@ -26,27 +26,7 @@
         <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
         <link rel="stylesheet" href="css/main.css" />
         <script src="../js/my.js"></script>
-<script>  
-var result=document.getElementById("result");
-  
-function readAsDataURL(file,idname){
-
-
-    var result=document.getElementById(idname);  
-    result.innerHTML = '';
-    for(i = 0; i< file.length; i ++) {
-        var reader  = new FileReader();    
-        reader.readAsDataURL(file[i]);  
-        reader.onload=function(e){  
-            //多图预览
-            result.innerHTML = result.innerHTML + '<img src="' + this.result +'" alt="" />';  
-        }
-
-    }
-    
-}  
-  
-</script>
+        <link rel="stylesheet" href="css/my.css" />
 <style>
 	input[type=file]{
 		display: none;

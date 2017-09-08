@@ -6,7 +6,8 @@
 		<title></title>
 		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="css/main.css" />
-		<script src="../js/my.js"></script>
+		<script src="js/my.js"></script>
+		<link rel="stylesheet" href="css/my.css" />
 	</head>
 
 	<body>
@@ -48,7 +49,7 @@ if ($num_cats > 0) {
     echo '<form method="post"
         action="updateslideshow.php" enctype="multipart/form-data">';
     for ($i = 0; $i < count($result); $i++) {
-        echo '<div id="oldimgdy' . $i . '" style="float: left;">';
+        echo '<div id="oldimgdy' . $i . '">';
         if (@file_exists($imgindex . $result[$i]['image'])) {
             $size = GetImageSize($imgindex . $result[$i]['image']);
             if (($size[0] > 0) && ($size[1] > 0)) {
@@ -64,17 +65,18 @@ if ($num_cats > 0) {
     echo '<input type="submit" value="更新" /><div style="text-align:center">点击更新才会生效</div>';
     echo '</form>';
 } else {
+?>
+   <p style="text-align:center; font-size:1.2em">添加首页轮播图，轮播图尺寸必须一致(建议尺寸)，文件名不可以是中文或符号</p>
+   <form method="post"
+        action="updateslideshow.php?table=slideshows" enctype="multipart/form-data">
+    <p><label for="agdimg">详情图片(最多十张)<img src="images/uploadfile.png" /></label><input type="file" id="agdimg" name="imagefile[]" multiple="true" onchange="readAsDataURL(this.files,'preagd')" /></p>
+    <div id="preagd" class="prediv"></div>
+   <input type="submit" value="更新" />
+   </form>
 
-    echo '<p style="text-align:center; font-size:1.2em">添加首页轮播图，轮播图尺寸必须一致(建议尺寸)，文件名不可以是中文或符号</p>';
-    echo '<form method="post"
-        action="updateslideshow.php?table=slideshows" enctype="multipart/form-data">';
-    echo '<div id="picInput"><input type="file" name="imagefile[]" /></div>';
-    echo '<input id="addBtn" type="button" onclick="addPic1()" value="继续添加图片" />';
-    echo '<input type="submit" value="更新" />';
-    echo '</form>';
+
+<?php
 }
-
-
 $conn->close();
 ?>
 				</div>

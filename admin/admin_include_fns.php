@@ -11,7 +11,7 @@ ob_start();
 	$imgindex = '../data/swpimg/';
 	$imgcat = '../data/catimg/';
 	$imggoods= '../data/goodsimg/';
-	$imggold = '../images/gold/';
+	$imglogo= '../data/logo/';
 	$imggoldsilde = '../images/gold/slide/';
 	
 	$imgnews = '../images/news/';

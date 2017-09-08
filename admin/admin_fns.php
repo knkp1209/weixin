@@ -31,26 +31,48 @@ function uploadimage($file, $upload_path = "images/")
 {
 
     $name = $file['name'];      //得到文件名称，以数组的形式
-    $images = array();      // 上传图片的文件名
-    //当前位置
-
-    foreach ($name as $k => $names) {
-        $type = strtolower(substr($names, strrpos($names, '.') + 1));//得到文件类型，并且都转化成小写
-        $allow_type = array('jpg', 'jpeg', 'gif', 'png'); //定义允许上传的类型
-        //把非法格式的图片去除
-        if (!in_array($type, $allow_type)) {
-            unset($name[$k]);
-        }
-    }
-
     
-    foreach ($name as $k => $item) {
+    //当前位置
+    if(is_array($name)){
+
+        foreach ($name as $k => $names) {
+            $type = strtolower(substr($names, strrpos($names, '.') + 1));//得到文件类型，并且都转化成小写
+            $allow_type = array('jpg', 'jpeg', 'gif', 'png'); //定义允许上传的类型
+            //把非法格式的图片去除
+            if (!in_array($type, $allow_type)) {
+                unset($name[$k]);
+            }
+        }
+
+        $images = array();      // 上传图片的文件名数组
+        foreach ($name as $k => $item) {
+            $rname = getRandOnlyId() . '.png';
+            $type = strtolower(substr($item, strrpos($item, '.') + 1));//得到文件类型，并且都转化成小写
+            if (move_uploaded_file($file['tmp_name'][$k], $upload_path . $rname )) {
+                $images[] = $rname;
+            } else {
+                return false;
+            }
+        }
+    }else{
+
+        $type = strtolower(substr($name,strrpos($name,'.')+1)); //得到文件类型，并且都转化成小写
+        $allow_type = array('jpg','jpeg','gif','png'); //定义允许上传的类型
+        //判断文件类型是否被允许上传
+        if(!in_array($type, $allow_type)){
+          return ;
+        }
+        if(!is_uploaded_file($file['tmp_name'])){
+          //如果不是通过HTTP POST上传的
+          return ;
+        }
+        //开始移动文件到相应的文件夹
+        $images = array();      // 上传图片的文件名
         $rname = getRandOnlyId() . '.png';
-        $type = strtolower(substr($item, strrpos($item, '.') + 1));//得到文件类型，并且都转化成小写
-        if (move_uploaded_file($file['tmp_name'][$k], $upload_path . $rname )) {
-            $images[] = $rname;
-        } else {
-            return false;
+        if(move_uploaded_file($file['tmp_name'],$upload_path.$rname)){
+          $images = $rname;
+        }else{
+          return false;
         }
     }
 
