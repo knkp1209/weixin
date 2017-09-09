@@ -6,7 +6,7 @@
         <title></title>
         <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
         <link rel="stylesheet" href="css/main.css" />
-        <script src="../js/my.js"></script>
+        <script src="js/my.js"></script>
     </head>
 
     <body>

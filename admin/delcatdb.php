@@ -23,7 +23,7 @@ if (isset($_POST['cats']) && count($_POST['cats']) > 0) {
         $parameter = '';
         $catsID = db_result_to_array($result);
         for($i = 0; $i < count($catsID); $i++){
-            if(dbselect('goods','catalogId',$catsID[$i]['catalogID'])){
+            if(!dbselect('goods','catalogId',$catsID[$i]['catalogID'])){
                 // 待测试
                 $parameter .= $catsID[$i]['catalogID'] . ",";
             }

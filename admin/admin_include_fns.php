@@ -3,8 +3,7 @@ ob_start();
 	session_start();
 	require_once('admin_fns.php');
 	if(!check_admin_user()){
-	  $indexurl =  $_SERVER['HTTP_HOST']."/index.php";
-	  header('Location: http://'.$indexurl);
+	  echo "你没有该权限";
 	  exit;
 	}
 	require_once('../db_fns.php');

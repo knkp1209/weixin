@@ -6,60 +6,70 @@ session_start();
 
 $error = '';
 if (isset($_POST['submitted'])) { // Check if the form has been submitted.
+	$validate="";
+	if(isset($_POST["validate"])){
+		$validate=$_POST["validate"];
+		if($validate!=$_SESSION["authnum_session"]){
+		//判断session值与用户输入的验证码是否一致;
+			$error="验证码有误请重新输入"; 
+		}else{
+			 // Validate the email address.
+		    if (!empty($_POST['userName'])) {
+		        $n = trim($_POST['userName']);
+		    } else {
+		        $n = FALSE;
+		    }
 
+		    // Validate the password.
+		    if (!empty($_POST['password'])) {
+		        $p = trim($_POST['password']);
+		    } else {
+		        $p = FALSE;
+		    }
 
-    // Validate the email address.
-    if (!empty($_POST['userName'])) {
-        $n = trim($_POST['userName']);
-    } else {
-        $n = FALSE;
-    }
+		    if ($n && $p) { // If everything's OK.
 
-    // Validate the password.
-    if (!empty($_POST['password'])) {
-        $p = trim($_POST['password']);
-    } else {
-        $p = FALSE;
-    }
+		        // Query the database.
+		        $conn = db_connect();
+		        $query = "select lgmail,appname,rid from tenant where lgmail='" . $n . "' and pwd=sha1('" . $p . "');";
 
-    if ($n && $p) { // If everything's OK.
+		        $result = $conn->query($query);
 
-        // Query the database.
-        $conn = db_connect();
-        $query = "select lgmail,appname,rid from tenant where lgmail='" . $n . "' and pwd=sha1('" . $p . "');";
+		        if (@$result->num_rows == 1) { // A match was made.
 
-        $result = $conn->query($query);
+		            // Register the values & redirect.
+		            $row = $result->fetch_assoc();
+		            $_SESSION['customer'] = array();
+		            $_SESSION['customer']['mail'] = $row['lgmail'];
+		            $_SESSION['customer']['appname'] = $row['appname'];
+		            $_SESSION['customer']['rid'] = $row['rid'];
 
-        if (@$result->num_rows == 1) { // A match was made.
+		            // // Start defining the URL.
+		            // $a = '';
+		            // $a = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
+		            // // Check for a trailing slash.
+		            // if ((substr($a, -1) == '/') OR (substr($a, -1) == '\\')) {
+		            //     $url = substr($a, 0, -1); // Chop off the slash.
+		            // }
+		            // Add the page.
+		            $a = 'index.php';
 
-            // Register the values & redirect.
-            $row = $result->fetch_assoc();
-            $_SESSION['customer'] = array();
-            $_SESSION['customer']['mail'] = $row['lgmail'];
-            $_SESSION['customer']['appname'] = $row['appname'];
-            $_SESSION['customer']['rid'] = $row['rid'];
+		            header("Location: $a");
+		            exit(); // Quit the script.
 
-            // Start defining the URL.
-            $a = '';
-            $a = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
-            // Check for a trailing slash.
-            if ((substr($a, -1) == '/') OR (substr($a, -1) == '\\')) {
-                $url = substr($a, 0, -1); // Chop off the slash.
-            }
-            // Add the page.
-            $a .= '/index.php';
+		        } else { // No match was made.
+		            $error = '用户名或者密码错误';
+		        }
 
-            header("Location: $a");
-            exit(); // Quit the script.
+		    } else {
+		    	 $error = '系统错误，请稍候再试。';
 
-        } else { // No match was made.
-            $error = '用户名、密码错误或者没激活。';
-        }
+		    }
 
-    } else {
-    	 $error = '系统错误，请稍候再试。';
+		}
+	}
 
-    }
+   
 
 
 } // End of SUBMIT conditional.
@@ -98,15 +108,15 @@ if (isset($_POST['submitted'])) { // Check if the form has been submitted.
 					</div>
 					<div class="layui-form-item">
 						<div class="beg-pull-left beg-login-remember">
-							<label>记住帐号？</label>
-							<input type="checkbox" name="rememberMe" value="true" lay-skin="switch" checked title="记住帐号">
+<input type="text" class="layui-input" name="validate" value="" size=10>
+
 						</div>
 						<div class="beg-pull-right">
-							<button class="layui-btn layui-btn-primary" lay-submit lay-filter="login">
-                            <i class="layui-icon">&#xe650;</i> 登录
-                        </button>
+<img  title="点击刷新" src="./captcha.php" align="absbottom" onclick="this.src='captcha.php?'+Math.random();"></img>
 						</div>
-						<div class="beg-clear"></div>
+						<div class="beg-clear" style="text-align: center; padding-top: 10px;"><button class="layui-btn layui-btn-primary" lay-submit lay-filter="login">
+                            <i class="layui-icon">&#xe650;</i> 登录
+                        </button></div>
 					</div>
 				</form>
 			</div>

@@ -10,8 +10,8 @@ session_destroy();
 //do_html_header("Logging Out");
 
 if (!empty($old_user)) {
-    $indexurl =  $_SERVER['HTTP_HOST']."/weixin/admin/login.php";
-	header('Location: http://'.$indexurl);
+    $indexurl =  "login.php";
+	header("Location: $indexurl");
     //do_html_url("login.php", "Login");
 } else {
     echo "<p>您处于未登录状态，无需退出！</p>";

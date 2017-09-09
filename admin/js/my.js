@@ -1,10 +1,10 @@
-function changeimg(id, img) {
-    document.getElementById("myImage" + id).src = img;
-}
+// function changeimg(id, img) {
+//     document.getElementById("myImage" + id).src = img;
+// }
 
-function sourceimg(id, img) {
-    document.getElementById("myImage" + id).src = img;
-}
+// function sourceimg(id, img) {
+//     document.getElementById("myImage" + id).src = img;
+// }
 
 function delimg(i) {
     var parent = document.getElementById('oldimgdy' + i);
@@ -16,24 +16,24 @@ function delimg(i) {
     parent.removeChild(valchild);
 }
 
-function showPicture(imgFile) {
-    document.getElementById("newImage").src = window.URL.createObjectURL(imgFile.files[0]);
-}
+// function showPicture(imgFile) {
+//     document.getElementById("newImage").src = window.URL.createObjectURL(imgFile.files[0]);
+// }
 
 
 
-function addPic1() {
-    var addBtn = document.getElementById('addBtn');
-    var input = document.createElement('input');
-    input.type = 'file';
-    input.name = 'imagefile[]';
-    input.className = 'abc';
-    var picInut = document.getElementById('picInput');
-    picInut.appendChild(input);
-    if (picInut.children.length == 10) {
-        addBtn.disabled = 'disabled';
-    }
-}
+// function addPic1() {
+//     var addBtn = document.getElementById('addBtn');
+//     var input = document.createElement('input');
+//     input.type = 'file';
+//     input.name = 'imagefile[]';
+//     input.className = 'abc';
+//     var picInut = document.getElementById('picInput');
+//     picInut.appendChild(input);
+//     if (picInut.children.length == 10) {
+//         addBtn.disabled = 'disabled';
+//     }
+// }
 
 
 function check_all(obj, cName) {
@@ -75,7 +75,7 @@ function checkform() {
 
 
 
-
+/*
 function addcase() {
     var addBtn = document.getElementById('addBtn');
 
@@ -177,6 +177,7 @@ function addpeople() {
     picInut.appendChild(profile);
 }
 
+
 function addcat() {
     var addBtn = document.getElementById('addBtn');
 
@@ -220,6 +221,26 @@ function addcat() {
 
 }
 
+*/
+var addcatid = 0;
+function addcat() {
+    this.addcatid++;
+
+
+    var div = document.getElementById("catalog");
+    var p1 = document.createElement('p');
+    var p2 = document.createElement('p');
+    var hr = document.createElement('hr');
+
+    p1.innerHTML = '<label for="catlogo">分类图标：</label>' + 
+    '<input type="button" class="button logo" value="选择图片" onclick="btnAction(' + "'catlogo" + this.addcatid + "')" + '" />' + 
+    '<input id="catlogo' + this.addcatid + '" type="file" class="forminline" name="imagefile[]" onchange="readAsDataURL(this.files,' + 
+    "'precat" + this.addcatid + "')" + '" /><div id="precat' + this.addcatid + '" class="precat"></div>';
+    p2.innerHTML= '<label>分类名称：</label>' + '<input class="forminline" type="text" name="cat[]" /></p>';
+    div.appendChild(p1);
+    div.appendChild(p2);
+    div.appendChild(hr);
+}
 function getElements() {
     var x = document.getElementsByTagName("input");
     for (var i = 0; i < x.length; i++) {
