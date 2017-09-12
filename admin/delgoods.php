@@ -6,63 +6,10 @@
         <title></title>
         <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
         <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/my.css">
         <script src="js/my.js"></script>
     </head>
     <style type="text/css">
-        #tb{
-            text-align:center;
-        }
-        table{
-            border-style: none;
-        }
-        .stb{
-            border-style:none;
-            width:80%;
-            border-collapse: collapse;
-            margin: 0px auto;
-            padding: 2px 2px;
-        }
-        .std{
-            padding: 5px 5px;
-        }
-        .tbtitle{
-            background: #f5f5f5;
-            font-size: 1.2em;
-        }
-        .odd{
-            background:white;
-        }
-        .even{
-            background: #d9edf7;
-        }
-        .gdname,.catname,.simg,.dimg,.spr,.pr,.nb,.del{
-            border-bottom: 1px solid grey;
-        }
-        .gdname {
-            width:8%;
-        }
-        .catname{
-            width:8%;
-        }
-        .simg{
-            width:23%;           
-        }
-        .dimg{
-            width:23%
-        }
-        .spr{
-            width:10%;   
-        }
-        .pr{
-            width:10%;
-        }
-        .nb{
-            width:4%;
-        }
-        .del{
-            width:4%;
-        }
-
     </style>
     <body>
         <div class="admin-main">
@@ -93,9 +40,6 @@ if ($num > 0) {
 
     echo '<form method="post"
         action="delgoodsdb.php" enctype="multipart/form-data">';
-    echo "<div style=\"text-align:center;\" >全选/全不选<input type=\"checkbox\" name=\"all\" onclick=\"check_all(this,'goodsID[]')\" /></div>
-      <br />
-     <input type=\"submit\" value=\"删除\" />";
     $result = db_result_to_array($result);
     echo "<div id=\"tb\"><table width=\"100%\" ><tr class=\"tbtitle\">
         <td class=\"gdname\">商品名称</td>
@@ -130,11 +74,13 @@ if ($num > 0) {
         <td class="nb">{$result[$i]['gdnumber']}</td>
         <td class="del"><input type="checkbox" name="goodsID[]" value="{$result[$i]['goodsID']}" /></td>
         </tr>
-
 php_table;
     }
 
-    echo "</table></div></form>";
+    echo "</table></div>";
+    echo "<div class=\"delcenter\"><input type=\"checkbox\" name=\"all\" onclick=\"check_all(this,'goodsID[]')\" /><p>全选/全不选</p>
+     <input type=\"submit\" value=\"删除\" class=\"button\" /></div>
+    </form>";
 
 
 } 

@@ -81,6 +81,10 @@ input[type=file] {
     display: none;
 }
 
+input[type=checkbox] {
+    width: 28px;
+}
+
 .prediv img {
     margin: 2px 2px;
     height: 50px;
@@ -113,12 +117,35 @@ label img {
 
 .precat {
     background: #C4E1FF;
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     border: 2px solid #009393;
     margin: 10px auto;
     text-align: center;
     overflow: hidden;
+}
+
+.divcat {
+    margin: 0 auto;
+    width: 270px;
+}
+
+.catlogo {
+    height: 60px;
+    width: 185px;
+    float: left;
+}
+
+.btncatname {
+    width: 150px;
+}
+
+.btncat {
+    height: 50px;
+}
+
+.btnaddcat {
+    width: 180px;
 }
 
 .preswp {
@@ -170,4 +197,118 @@ form p {
 .swpimg {
     text-align: center;
     font-size: 1.2em;
+}
+
+.catparent {
+    width: 100%;
+    min-height: 150px;
+    margin: 10px auto;
+    text-align: center;
+    /*background-color: #999;*/
+}
+
+.catchildren {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.catchildren img {
+    width: 60px;
+    height: 60px;
+}
+
+
+/**+ html .children {
+    display: inline;
+    zoom: 1;
+}
+
+* html .children {
+    display: inline;
+    zoom: 1;
+}*/
+
+
+/*delgoods*/
+
+#tb {
+    text-align: center;
+}
+
+table {
+    border-style: none;
+}
+
+.stb {
+    border-style: none;
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0px auto;
+    padding: 2px 2px;
+}
+
+.std {
+    padding: 5px 5px;
+}
+
+.tbtitle {
+    background: #f5f5f5;
+    font-size: 1.2em;
+}
+
+.odd {
+    background: white;
+}
+
+.even {
+    background: #d9edf7;
+}
+
+.gdname,
+.catname,
+.simg,
+.dimg,
+.spr,
+.pr,
+.nb,
+.del {
+    border-bottom: 1px solid grey;
+}
+
+.gdname {
+    width: 8%;
+}
+
+.catname {
+    width: 8%;
+}
+
+.simg {
+    width: 23%;
+}
+
+.dimg {
+    width: 23%
+}
+
+.spr {
+    width: 10%;
+}
+
+.pr {
+    width: 10%;
+}
+
+.nb {
+    width: 4%;
+}
+
+.del {
+    width: 4%;
+}
+
+.delcenter{
+    margin-top: 10px;
+    text-align:center;
 }

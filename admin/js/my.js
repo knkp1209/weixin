@@ -229,17 +229,27 @@ function addcat() {
 
     var div = document.getElementById("catalog");
     var p1 = document.createElement('p');
+    var prediv = document.createElement('div');
     var p2 = document.createElement('p');
     var hr = document.createElement('hr');
 
-    p1.innerHTML = '<label for="catlogo">分类图标：</label>' + 
-    '<input type="button" class="button logo" value="选择图片" onclick="btnAction(' + "'catlogo" + this.addcatid + "')" + '" />' + 
-    '<input id="catlogo' + this.addcatid + '" type="file" class="forminline" name="imagefile[]" onchange="readAsDataURL(this.files,' + 
-    "'precat" + this.addcatid + "')" + '" /><div id="precat' + this.addcatid + '" class="precat"></div>';
-    p2.innerHTML= '<label>分类名称：</label>' + '<input class="forminline" type="text" name="cat[]" /></p>';
+    prediv.id = "precat" + addcatid;
+    prediv.className="precat";
+    p1.className = "catlogo";
+
+
+
+
+
+
     div.appendChild(p1);
+    p1.innerHTML = '<label>分类图标：</label>' + '<input type="button" class="button btncat" value="选择图片" onclick="btnAction(\'catlogo' + addcatid + '\')" />' + 
+    ' <input id="catlogo' + addcatid + '" type="file" class="forminline" name="imagefile[]" onchange="readAsDataURL(this.files,\'precat' + addcatid + '\')" />';
+    div.appendChild(prediv);
     div.appendChild(p2);
+    p2.innerHTML = ' <label>分类名称：</label><input class="forminline btncatname" type="text" name="cat[]" />';
     div.appendChild(hr);
+
 }
 function getElements() {
     var x = document.getElementsByTagName("input");

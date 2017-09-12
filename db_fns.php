@@ -1,7 +1,7 @@
 <?php
 
 function db_connect() {
-   $result = new mysqli('localhost','root', 'yangwenhang','applet');
+   $result = new mysqli('localhost','root', 'yangwenang','applet');
    if (!$result) {
       return false;
    }

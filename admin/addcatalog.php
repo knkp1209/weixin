@@ -18,7 +18,7 @@
     <script src="js/my.js"></script>
 </head>
 <style>
-#addcp p {
+/*#addcp p {
     text-align: left;
     padding-top: 2px;
     padding-bottom: 2px;
@@ -36,7 +36,7 @@ h1 {
 
 span {
     color: red;
-}
+}*/
 </style>
 
 <body>
@@ -44,27 +44,29 @@ span {
         <fieldset class="layui-elem-field">
             <legend>添加商品分类</legend>
             <div class="layui-field-box">
-                <div style="width:40%; margin:0 auto;">
+                <div style="width:40%; margin:0 auto; text-align: center">
                     <h1>添加商品分类</h1>
-                    <span>图片必须是宽度：135px 高度：45px</span>
+                    <span>图片要求尺寸（60 X 60）</span>
                     <form method="post" action="addcatdb.php" enctype="multipart/form-data" onsubmit="return getElements()" id="addcp">
-                        <div id="catalog">
-                            <p>
-                                <label for="catlogo">分类图标：</label>
-                                <input type="button" class="button logo" value="选择图片" onclick="btnAction('catlogo')" />
+                        <div id="catalog" class="divcat">
+                            <p class="catlogo">
+                                <label>分类图标：</label>
+                                <input type="button" class="button btncat" value="选择图片" onclick="btnAction('catlogo')" />
                                 <input id="catlogo" type="file" class="forminline" name="imagefile[]" onchange="readAsDataURL(this.files,'precat0')" />
                                 <div id="precat0" class="precat"></div>
                             </p>
                             <p>
                                 <label>分类名称：</label>
-                                <input class="forminline" type="text" name="cat[]" />
+                                <input class="forminline btncatname" type="text" name="cat[]" />
                             </p>
+                            <hr />
+                            
                         </div>
                         <br />
                         <br />
-                        <input id="addBtn" type="button" onclick="addcat()" value="继续添加商品分类" />
-                        <input type="submit" value="提交" />
-                </div>
+                        <input id="addBtn" type="button" class="button btnaddcat" onclick="addcat()" value="继续添加商品分类" />
+                        <input type="submit" class="button" value="提交" />
+                   </div>
                 <br />
                 <br />
                 </form>

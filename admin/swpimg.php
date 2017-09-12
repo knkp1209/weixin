@@ -75,7 +75,7 @@ if ($num_cats > 0) {
 } else {
 ?>
     <div id="preswp" class="preswp"></div>
-    <p class="swpimg"><label for="swpimg"></label><input type="button" class="button swpbutton"  value="继续添加图片" onclick="btnAction('swpimg')"><input type="file" id="swpimg" name="imagefile[]" multiple="true" onchange="readAsDataURL(this.files,'preswp')" />
+    <p class="swpimg"><label for="swpimg"></label><input type="button" class="button swpbutton"  value="添加图片" onclick="btnAction('swpimg')"><input type="file" id="swpimg" name="imagefile[]" multiple="true" onchange="readAsDataURL(this.files,'preswp')" />
     <input type="submit" value="更新" class="button upbutton" /></p>
 
 

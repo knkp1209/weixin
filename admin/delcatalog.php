@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
         <link rel="stylesheet" href="css/main.css" />
         <script src="js/my.js"></script>
+        <link rel="stylesheet" href="css/my.css">
     </head>
 
     <body>
@@ -32,24 +33,23 @@ if (!$result) {
 
 $num = @$result->num_rows;
 if ($num > 0) {
-    echo '<div style="width:40%; margin:0 auto; text-align:center"><h1>删除分类</h1></div>';
     echo '<form method="post"
         action="delcatdb.php" enctype="multipart/form-data">';
+    echo '<div class="catparent">';
     $result = db_result_to_array($result);
     for ($i = 0; $i < count($result); $i++) {
 
         echo <<<caselayout
-         <img src="$imgcat{$result[$i]['image']}"  alt=" "/>
-         <p><a>{$result[$i]['catname']}</a></p>
-         <p><input type="checkbox" name="cats[]" value="{$result[$i]['catalogID']}" />删除</p>
-     
+         <div class="catchildren"><img  src="$imgcat{$result[$i]['image']}"  alt=" " />
+         <p>{$result[$i]['catname']}</p>
+         <p><input type="checkbox" name="cats[]" value="{$result[$i]['catalogID']}" /></p>
+     </div>
 
 caselayout;
 
     }
-    echo '</div>' . "<div style=\"text-align:center;\" >全选/全不选<input type=\"checkbox\" name=\"all\" onclick=\"check_all(this,'cats[]')\" /></div>
-      <br />
-     <input type=\"submit\" value=\"删除\" />
+    echo '</div>' . "<div style=\"text-align:center;\" ><input type=\"checkbox\" name=\"all\" onclick=\"check_all(this,'cats[]')\" /><p>全选/全不选</p><input class=\"button\" type=\"submit\" value=\"删除\" /></div>
+     
     </form>";
 
 
